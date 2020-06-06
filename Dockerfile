@@ -32,7 +32,7 @@ RUN cd /root && \
     cmake .. && make -j${JOBS_NUM}
 
 RUN cd /root && \
-    git clone https://gitee.com/gongyiqunall/LDSO.git && \
+    git clone https://github.com/tum-vision/LDSO.git && \
     cd LDSO && ./make_project.sh
 
 RUN git clone https://github.com/alalagong/oh-my-zsh-gong.git ~/.oh-my-zsh \
