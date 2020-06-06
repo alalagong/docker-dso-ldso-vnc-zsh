@@ -25,7 +25,7 @@ RUN cd /root && \
 	cmake .. && make -j${JOBS_NUM} install && \
 	rm -rf /root/Pangolin
 
-RUN cd /root && git config --global http.postBuffer 1572864000 && \
+RUN cd /root && \
     git clone https://github.com/JakobEngel/dso.git && \
     cd dso && mkdir build && cd build && \
     cmake .. && make -j${JOBS_NUM}
@@ -33,7 +33,7 @@ RUN cd /root && git config --global http.postBuffer 1572864000 && \
 RUN apt-get -y update && apt-get install -y libgtest-dev \
 	libzip-dev && rm -rf /var/lib/apt/lists/*
 
-RUN cd /root && git config --global http.postBuffer 1572864000 && \
+RUN cd /root && \
     git clone https://gitee.com/gongyiqunall/LDSO.git && \
     cd LDSO && ./make_project.sh
 
