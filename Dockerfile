@@ -3,7 +3,7 @@ FROM paopaorobot/ubuntu-xfce-vnc
 LABEL Name=general Version=0.0.1
 MAINTAINER YiQun GONG<gongyiqun51237@163.com>
 
-ENV JOBS_NUM="8"
+ENV JOBS_NUM="4"
 
 RUN apt-get -y update && apt-get install -y \
     libboost-all-dev cmake-gui\
