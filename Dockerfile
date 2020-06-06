@@ -3,7 +3,7 @@ FROM paopaorobot/ubuntu-xfce-vnc
 LABEL Name=general Version=0.0.1
 MAINTAINER YiQun GONG<gongyiqun51237@163.com>
 
-ENV JOBS_NUM="4"
+ENV JOBS_NUM="2"
 
 RUN apt-get -y update && apt-get install -y \
     libboost-all-dev cmake-gui\
@@ -11,7 +11,8 @@ RUN apt-get -y update && apt-get install -y \
 	libgoogle-glog-dev libsuitesparse-dev\
 	libeigen3-dev build-essential
 
-RUN apt-get -y update && apt-get install -y libopencv-dev 
+RUN apt-get -y update && apt-get install -y libopencv-dev \
+    libgtest-dev libzip-dev && rm -rf /var/lib/apt/lists/*
 
 RUN apt-get -y update && apt-get install -y \
     libgl1-mesa-dev \
@@ -29,9 +30,6 @@ RUN cd /root && \
     git clone https://github.com/JakobEngel/dso.git && \
     cd dso && mkdir build && cd build && \
     cmake .. && make -j${JOBS_NUM}
-
-RUN apt-get -y update && apt-get install -y libgtest-dev \
-	libzip-dev && rm -rf /var/lib/apt/lists/*
 
 RUN cd /root && \
     git clone https://gitee.com/gongyiqunall/LDSO.git && \
