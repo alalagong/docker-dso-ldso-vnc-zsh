@@ -33,7 +33,11 @@ RUN cd /root && \
 
 RUN cd /root && \
     git clone https://github.com/tum-vision/LDSO.git && \
-    cd LDSO && ./make_project.sh
+    cd LDSO/thirdparty/DBoW3 && mkdir build && cd build && \
+    cmake .. && make -j${JOBS_NUM} && \
+    cd ../g2o && mkdir build && cd build && \
+    cmake .. && make -j${JOBS_NUM} && \
+    cd ../.. && cmake .. && make -j${JOBS_NUM}
 
 RUN git clone https://github.com/alalagong/oh-my-zsh-gong.git ~/.oh-my-zsh \
     && cp ~/.oh-my-zsh/templates/zshrc_gong.zsh-template ~/.zshrc \
