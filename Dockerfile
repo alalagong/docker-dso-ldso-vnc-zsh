@@ -38,7 +38,7 @@ RUN cd /root && \
     cd ../../g2o && mkdir build && cd build && \
     cmake .. && make -j${JOBS_NUM} && \
     cd ../../.. && mkdir build && cd build && \
-    && cmake .. && make -j${JOBS_NUM}
+    cmake .. && make -j${JOBS_NUM}
 
 RUN git clone https://github.com/alalagong/oh-my-zsh-gong.git ~/.oh-my-zsh \
     && cp ~/.oh-my-zsh/templates/zshrc_gong.zsh-template ~/.zshrc \
